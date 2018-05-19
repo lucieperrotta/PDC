@@ -1,4 +1,5 @@
 import numpy as np
+import scipy.signal as sgn
 
 def raised_cosine(freq, pulse_dt, rate, beta=0.5):
     freq /=2
@@ -15,3 +16,17 @@ def raised_cosine(freq, pulse_dt, rate, beta=0.5):
     assert not any(np.isnan(out))    
     np.seterr(invalid='warn')
     return out
+
+# Do not use this one, it's only used in the next function!!!
+def butter_bandpass(lowcut, highcut, fs, order=5):
+    nyq = 0.5 * fs
+    low = lowcut / nyq
+    high = highcut / nyq
+    b, a = sgn.butter(order, [low, high], btype='band')
+    return b, a
+
+# Bandpass filter applied on array "data"
+def butter_bandpass_filter(data, lowcut, highcut, fs, order=5):
+    b, a = butter_bandpass(lowcut, highcut, fs, order=order)
+    y = sgn.lfilter(b, a, data)
+    return y
