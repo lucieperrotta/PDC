@@ -7,12 +7,12 @@ def raised_cosine(shifted_freq, time_per_symb, samp_freq, roll_off=0.5):
     
     pulse = np.linspace(- time_per_symb, time_per_symb, samp_freq * time_per_symb)
     
-    numerator = np.cos((1 + roll_off) * np.pi * pulse / time_per_symb) 
-              + (1 - roll_off) * np.pi / (4 * roll_off) * np.sinc((1 - roll_off) * pulse / time_per_symb)
+    numerator = np.cos((1 + roll_off) * np.pi * pulse / time_per_symb) + \
+              (1 - roll_off) * np.pi / (4 * roll_off) * np.sinc((1 - roll_off) * pulse / time_per_symb)
     denominator = 1 - (4 * roll_off * pulse / time_per_symb) ** 2
     
-    limit_case = roll_off / (np.pi * np.sqrt(2 * time_per_symb)) * ((np.pi + 2) * np.sin(np.pi / (4 * roll_off)) 
-             + (np.pi - 2) * np.cos(np.pi / (4 * roll_off)))
+    limit_case = roll_off / (np.pi * np.sqrt(2 * time_per_symb)) * ((np.pi + 2) * np.sin(np.pi / (4 * roll_off)) + \
+             (np.pi - 2) * np.cos(np.pi / (4 * roll_off)))
     
     out = 4 * roll_off / (np.pi * np.sqrt(time_per_symb)) * numerator / denominator
     out[np.isnan(out)] = limit_case
