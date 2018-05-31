@@ -1,2 +1,7 @@
-"Girl, you'll be a woman soon."
--Pulp Fiction, 1994
+0137fv"
+
+a = ''
+for i in range(0, 7) :
+    a += (my_alphabet[2**i])
+    
+a
