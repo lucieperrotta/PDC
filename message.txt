@@ -1,7 +1,1 @@
-0137fv"
-
-a = ''
-for i in range(0, 7) :
-    a += (my_alphabet[2**i])
-    
-a
+I was eating in a Chinese restaurant downtown. There was a dish called Mother and Child Reunion. It's chicken and eggs. And I said, I gotta use that one. Paul Simon
