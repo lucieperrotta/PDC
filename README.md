@@ -1,4 +1,6 @@
-# Decoding steps (variable name of each step):
+# 7-FSK with raised_cosine pulses
+
+## Decoding steps (variable name of each step):
 
 1. **raw_symbols[160]** = list of the audio snipets of all the symbols sounds as raw recorded.
 
